@@ -1,0 +1,30 @@
+--Create a cheese board store datatbase
+
+CREATE TABLE store (id Integer primary key, item text, material_cost integer, time integer, price integer, sales integer);
+
+INSERT INTO store VALUES
+(1, 'Basic', 5,30,30,4),
+(2, 'Plus', 15,60,60,2),
+(3,'Grand', 40,300,120,3),
+(4, 'Italy', 15,60,75,4),
+(5, 'France', 20,60,75,2),
+(6, 'Dessert', 30,60,100,6),
+(7, 'Picnic', 20,90,100,8),
+(8, 'Date Night', 15,60,45,5),
+(9, 'Wedding', 300,240,800,3),
+(10, 'Grill', 40,60,120,4),
+(11, 'Beach', 40,120,200,3), 
+(12, 'Box', 5,15,15,14),
+(13, 'Bigger Box', 10,20,25,10),
+(14, 'Boston', 5,20,30,5),
+(15, 'Home', 20,60,80,9);
+
+--Display the database ordered by price
+Select * From store
+Order By price asc;
+
+--What are the 5 most popular items?
+SELECT item, price, sales
+FROM store
+ORDER BY sales desc
+limit 5;
