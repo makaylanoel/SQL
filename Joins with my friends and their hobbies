@@ -1,4 +1,4 @@
-/* My FRIENDS */
+/* My FRIENDS, SPOUSES, and HOBBIES */
 
 CREATE TABLE friends (id INTEGER PRIMARY KEY,
     first_name TEXT,
@@ -62,17 +62,23 @@ Insert into hobbies (first_name,last_name, hobby)
 Insert into hobbies (first_name,last_name, hobby)
     Values ("Nate","Brown", "Gaming");
     
+/* Who are my friends married to and where do they live? */
+    
 SELECT friends.first_name, partners.spouse, friends.city
     FROM friends
     JOIN partners 
     ON friends.first_name=partners.first_name;
     
+/* Who likes the same hooby as me and lives near me? */
+
 SELECT friends.first_name, hobbies.hobby, friends.city
     FROM friends
     JOIN hobbies
     ON friends.first_name=hobbies.first_name
     WHERE friends.city ="Taylorsville"
     AND hobbies.hobby = "Painting";
+    
+/* Who are our friends that like gaming and where do they live? */
     
 SELECT friends.first_name, hobbies.hobby, friends.city
     FROM friends
