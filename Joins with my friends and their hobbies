@@ -1,0 +1,81 @@
+/* My FRIENDS */
+
+CREATE TABLE friends (id INTEGER PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+    city TEXT);
+    
+INSERT into friends (first_name, last_name, city)
+    VALUES ("Makayla", "Noel", "Taylorsville");
+INSERT into friends (first_name, last_name, city)
+    VALUES ("Tanner", "Noel", "Taylorsville"); 
+INSERT into friends (first_name, last_name, city)
+    VALUES ("Gio", "Vandyke", "Taylorsville");
+INSERT into friends (first_name, last_name, city)
+    VALUES ("Ben", "Vandyke", "Taylorsville");
+INSERT into friends (first_name, last_name, city)
+    VALUES ("Howell", "Tanner", "Logan");
+INSERT into friends (first_name, last_name, city)
+    VALUES ("Hannah", "Howell", "Logan");
+INSERT into friends (first_name, last_name, city)
+    VALUES ("Josh", "Ostler", "Sandy");
+INSERT into friends (first_name, last_name, city)
+    VALUES ("Eden", "Ostler", "Sandy");
+INSERT into friends (first_name, last_name, city)
+    VALUES ("Nate", "Brown", "Salt Lake");
+
+    
+CREATE TABLE partners (id Integer PRIMARY KEY,     first_name TEXT,
+    last_name TEXT,
+    spouse TEXT);
+
+Insert into partners (first_name, last_name, spouse) 
+    Values ("Makayla","Noel","Tanner");
+Insert into partners (first_name,last_name, spouse) 
+    Values ("Gio","Vandyke", "Ben");
+Insert into partners (first_name,last_name, spouse) 
+    Values ("Hannah","Howell", "Tanner");
+Insert into partners (first_name, last_name, spouse) 
+    Values ("Josh","Ostler","Eden");
+
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+    hobby TEXT);
+
+Insert into hobbies (first_name,last_name, hobby)
+    Values ("Makayla","Noel","Painting");
+Insert into hobbies (first_name,last_name, hobby)
+    Values ("Tanner","Noel", "Gaming");
+Insert into hobbies (first_name,last_name, hobby)
+    Values ("Hannah","Howell", "Gaming");
+Insert into hobbies (first_name,last_name, hobby)
+    Values ("Howell","Tanner", "Gaming");
+Insert into hobbies (first_name,last_name, hobby)
+    Values ("Josh","Ostler", "Gaming");
+Insert into hobbies (first_name,last_name, hobby)
+    Values ("Eden","Ostler", "Reading");
+Insert into hobbies (first_name,last_name, hobby)
+    Values ("Gio","Vandyke", "Painting");
+Insert into hobbies (first_name,last_name, hobby)
+    Values ("Ben","Vandyke", "Building");
+Insert into hobbies (first_name,last_name, hobby)
+    Values ("Nate","Brown", "Gaming");
+    
+SELECT friends.first_name, partners.spouse, friends.city
+    FROM friends
+    JOIN partners 
+    ON friends.first_name=partners.first_name;
+    
+SELECT friends.first_name, hobbies.hobby, friends.city
+    FROM friends
+    JOIN hobbies
+    ON friends.first_name=hobbies.first_name
+    WHERE friends.city ="Taylorsville"
+    AND hobbies.hobby = "Painting";
+    
+SELECT friends.first_name, hobbies.hobby, friends.city
+    FROM friends
+    JOIN hobbies
+    ON friends.first_name=hobbies.first_name
+    AND hobbies.hobby = "Gaming"
